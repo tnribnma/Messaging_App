@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimePass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <span class="brand-mark">T</span>
+                    <span>TimePass</span>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">☀️</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar" id="avatar">?</div>
+                <div class="user-details">
+                    <div class="username" id="username">Guest</div>
+                    <div class="status">
+                        <span class="dot" id="status-dot"></span>
+                        <span id="status-text">Offline</span>
+                    </div>
+                </div>
+            </div>
+
+            <label class="search-box" aria-label="Search conversations">
+                <span class="search-icon">
+                    <img src="images/search.png" alt="Search">
+                </span>
+                <input id="conversation-search" type="search" placeholder="Search conversations">
+            </label>
+
+            <div class="sidebar-section-header">
+                <span>Messages</span>
+                <span class="online-count" id="online-count">0 online</span>
+            </div>
+
+            <div class="online-users">
+                <div id="user-list"></div>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="chat-header">
+                <div class="chat-user">
+                    <div class="chat-avatar" id="contact-avatar">G</div>
+                    <div class="chat-user-info">
+                        <h2 id="chat-title">General Chat</h2>
+                        <p id="chat-subtitle">Team room</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="typing-bar">
+                <span id="typing-status" hidden>Someone is typing...</span>
+            </div>
+
+            <div class="messages" id="messages"></div>
+            <div id="reaction-popover" class="reaction-popover" role="menu" aria-label="React to message">
+                <button type="button" data-emoji="images/like.png" title="Like">
+                    <img src="images/like.png" alt="Like">
+                </button>
+                <button type="button" data-emoji="images/love.png" title="Love">
+                    <img src="images/love.png" alt="Love">
+                </button>
+                <button type="button" data-emoji="images/happy.png" title="Happy">
+                    <img src="images/happy.png" alt="Happy">
+                </button>
+                <button type="button" data-emoji="images/funny.png" title="Funny">
+                    <img src="images/funny.png" alt="Funny">
+                </button>
+                <button type="button" data-emoji="images/fire.png" title="Fire">
+                    <img src="images/fire.png" alt="Fire">
+                </button>
+            </div>
+
+            <div class="input-area">
+                <div id="reply-preview" class="reply-preview" hidden></div>
+                <div class="composer-shell">
+                    <button class="composer-icon" type="button" aria-label="Attach file">＋</button>
+                    <button id="emoji-btn" class="composer-icon" type="button" aria-label="Insert emoji">☺</button>
+                    <input type="text" id="message-input" placeholder="Type a message..." disabled>
+                    <button id="clear-btn" class="secondary-btn" type="button">Clear</button>
+                    <button id="send-btn" disabled>Send</button>
+                </div>
+                <div id="emoji-picker" class="emoji-picker" hidden>
+                    <button type="button" class="emoji-option"
+                        data-image-path="images/happy.png"
+                        data-sticker-name="happy">
+                        <img src="images/happy.png" alt="Happy">
+                    </button>
+                    <button type="button" class="emoji-option"
+                        data-image-path="images/funny.png"
+                        data-sticker-name="funny">
+                        <img src="images/funny.png" alt="Funny">
+                    </button>
+                    <button type="button" class="emoji-option"
+                        data-image-path="images/love.png"
+                        data-sticker-name="love">
+                        <img src="images/love.png" alt="Love">
+                    </button>
+                    <button type="button" class="emoji-option"
+                        data-image-path="images/like.png"
+                        data-sticker-name="like">
+                        <img src="images/like.png" alt="Like">
+                    </button>
+                    <button type="button" class="emoji-option"
+                        data-image-path="images/fire.png"
+                        data-sticker-name="fire">
+                        <img src="images/fire.png" alt="Fire">
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="join-modal">
+        <div class="modal-box">
+            <div class="modal-glow"></div>
+            <div class="modal-badge">TimePass</div>
+            <h2>Welcome to TimePass</h2>
+            <p>Pick a name and jump into the room</p>
+            <input type="text" id="name-input" placeholder="Your name..." maxlength="20" autofocus>
+            <button id="join-btn">Join Chat</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
